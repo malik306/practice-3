@@ -1,0 +1,55 @@
+.footer {
+  padding: 20px 0;
+  &__case {
+    @include max-width(1000);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 20px;
+    &__icons {
+      &__items {
+        margin-top: 10px;
+        display: flex;
+        gap: 15px;
+
+        i {
+          color: black;
+        }
+      }
+    }
+    &__items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      &__item {
+        &__link {
+          color: black;
+          font-weight: 500;
+          font-size: 16px;
+          text-transform: uppercase;
+          transition: all 0.01s;
+          letter-spacing: 1px;
+        }
+        &:hover &__link {
+          font-weight: 600;
+        }
+      }
+    }
+    &__credit {
+      a {
+        display: inline-block;
+        width: max-content;
+        color: rgba(255, 255, 255, 0.8);
+        border-radius: 6px;
+        background: linear-gradient(to right,rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.8));
+        padding: 6px 10px;
+        font-weight: 700;
+        transition: all 0.5s;
+        transform: scale(1);
+        margin-bottom: 12px;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

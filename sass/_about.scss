@@ -1,0 +1,45 @@
+.about {
+  &__case {
+    @include max-width(1000);
+    &__text {
+      display: flex;
+      flex-direction: column;
+      
+      gap: 10px;
+      margin-bottom: 8px;
+      @include media(700) {
+        text-align: center;
+      }
+    }
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      &__item {
+        @include set-col-width(4);
+        padding: 15px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        p {
+          text-align: justify;
+        }
+        @include media(700) {
+          &:nth-child(1),
+          &:nth-child(2) {
+            @include set-col-width(6);
+          }
+          &:nth-child(3) {
+            @include set-col-width(12);
+          }
+        }
+        @include media(450) {
+          &:nth-child(n + 0) {
+            @include set-col-width(12);
+          }
+        }
+      }
+    }
+  }
+}

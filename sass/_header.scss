@@ -1,0 +1,99 @@
+.header {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  &__case {
+    @include max-width(1000);
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      &__logo {
+        font-weight: bold;
+        font-size: 26px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+      &__bar {
+        display: none !important;
+        cursor: pointer;
+        @include media(700) {
+          display: unset !important;
+          transition: all 0.5s;
+          &:hover {
+            color: rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+      &__check {
+        display: none;
+      }
+      &__check:checked ~ &__items {
+        transform: translateX(0);
+      }
+      &__btn {
+        display: inline-block;
+        color: rgba(255, 255, 255, 0.8);
+        border-radius: 6px;
+        background: linear-gradient(to right,rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.8));
+        padding: 6px 10px;
+        font-weight: 700;
+        transition: all 0.5s;
+        transform: scale(1);
+        &:hover {
+          transform: scale(1.1);
+        }
+        @include media(700) {
+          display: none !important;
+        }
+      }
+      &__items {
+        display: flex;
+        gap: 12px;
+        transition: all 1.6s;
+        &__item {
+          &__link {
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: 600;
+            display: inline-block;
+            padding: 6px;
+            transition: all 0.8s;
+            text-transform: uppercase;
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              height: 2px;
+              background: rgba(0, 0, 0, 0.6);
+              opacity: 0;
+              transform-origin: left;
+              transform: scale(0);
+              transition: all 0.5s;
+            }
+          }
+          &:hover &__link::before {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        @include media(700) {
+          transform: translateX(-120%);
+          background: rgba(255, 255, 255, 1);
+          padding: 12px 0;
+          flex-direction: column;
+          position: absolute;
+          top: 50px;
+          width: 100%;
+          z-index: 1;
+          &__item {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
